@@ -1,0 +1,18 @@
+/* Add OS specific fonts */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  text-rendering: optimizeLegibility !important;
+  font-feature-settings: "liga", "clig", "kern";
+}
+
+/* Bind the topbar as the window's draggable region */
+header {
+  -webkit-app-region: drag;
+  margin-left: 50px;
+}
+
+._2GyPfdsi-MbQFyHRECo9GO {
+  padding: 0 20px 0 80px !important;
+}
