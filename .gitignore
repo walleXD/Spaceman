@@ -1,5 +1,7 @@
 ### Project ###
 *.env
+dist/
+build/
 
 ### Linux ###
 *~

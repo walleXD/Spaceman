@@ -24,6 +24,7 @@
     "prettier-eslint-cli": "^4.7.1"
   },
   "dependencies": {
+    "electron-ad-blocker": "^0.2.0",
     "electron-config-env": "^1.5.0",
     "electron-default-menu": "^1.0.1",
     "electron-window-state-manager": "^0.3.2",
@@ -32,9 +33,8 @@
   },
   "scripts": {
     "start": "electron src/main",
-    "icon": "npm-run-all icon:*",
-    "icon:icns": "png2icns static/Icon.png -o build/icon.icns",
-    "icon:ico": "png2icons static/Icon.png build/icon -ico",
+    "icon": "png2icns static/icon.png build/icon -allp -bc -i",
+    "icon:ico": "png2icons static/icon.png build/icon -ico",
     "dist": "npm-run-all test dist:*",
     "dist:mac": "electron-builder --mac",
     "pack": "electron-builder --dir"

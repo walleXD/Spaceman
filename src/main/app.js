@@ -3,6 +3,7 @@ import CreateWindowStateManager from "electron-window-state-manager"
 import { join } from "path"
 import { readFileSync } from "fs"
 import defaultMenu from "electron-default-menu"
+import { blockWindowAds, adBlocker } from "electron-ad-blocker"
 
 app.setAppUserModelId("me.walee.spaceman")
 
@@ -26,13 +27,18 @@ const createMainWindow = () => {
     minWidth: 890,
     minHeight: 400,
     titleBarStyle: "hiddenInset",
-    icon: join(__dirname, "..", "..", "static/Icon.png"),
+    icon: join(process.env.INIT_CWD, "static", "icon.png"),
     webPreferences: {
       preload: join(__dirname, "..", "renderer", "index.js"),
       nodeIntegration: false
     }
   })
-
+  adBlocker.parse("||reddit.com/api/request_promo")
+  adBlocker.parse("||redditmedia.com/moat/")
+  blockWindowAds(window, {
+    verbose: true,
+    logger: console
+  })
   // only for darwin
   if (process.platform === "darwin") {
     window.setSheetOffset(600)
