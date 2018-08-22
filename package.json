@@ -1,10 +1,15 @@
 {
   "name": "spaceman",
+  "productName": "Spaceman",
   "private": true,
   "version": "0.0.1",
   "main": "src/main",
   "license": "MIT",
   "description": "Simple client for Reddit",
+  "author": {
+    "name": "Walee Ahmed",
+    "email": "dev@walee.me"
+  },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "electron": "^2.0.7",
@@ -24,7 +29,6 @@
     "prettier-eslint-cli": "^4.7.1"
   },
   "dependencies": {
-    "electron-ad-blocker": "^0.2.0",
     "electron-config-env": "^1.5.0",
     "electron-default-menu": "^1.0.1",
     "electron-window-state-manager": "^0.3.2",
@@ -34,9 +38,8 @@
   "scripts": {
     "start": "electron src/main",
     "icon": "png2icns static/icon.png build/icon -allp -bc -i",
-    "icon:ico": "png2icons static/icon.png build/icon -ico",
-    "dist": "npm-run-all test dist:*",
-    "dist:mac": "electron-builder --mac",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "electron-builder --mac",
     "pack": "electron-builder --dir"
   },
   "build": {

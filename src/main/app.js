@@ -3,7 +3,7 @@ import CreateWindowStateManager from "electron-window-state-manager"
 import { join } from "path"
 import { readFileSync } from "fs"
 import defaultMenu from "electron-default-menu"
-import { blockWindowAds, adBlocker } from "electron-ad-blocker"
+// import { blockWindowAds, adBlocker } from "electron-ad-blocker"
 
 app.setAppUserModelId("me.walee.spaceman")
 
@@ -33,12 +33,13 @@ const createMainWindow = () => {
       nodeIntegration: false
     }
   })
-  adBlocker.parse("||reddit.com/api/request_promo")
-  adBlocker.parse("||redditmedia.com/moat/")
-  blockWindowAds(window, {
-    verbose: true,
-    logger: console
-  })
+  // adBlocker.parse("||reddit.com/api/request_promo")
+  // adBlocker.parse("||redditmedia.com/moat/")
+  // blockWindowAds(window, {
+  //   verbose: true,
+  //   logger: console
+  // })
+
   // only for darwin
   if (process.platform === "darwin") {
     window.setSheetOffset(600)
